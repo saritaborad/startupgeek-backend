@@ -1,0 +1,26 @@
+{
+    "sourceFile": "routes/Agent.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1671163942772,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1671164167210,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n const express = require(\"express\");\r\n const router = new express.Router();\r\n const {authorize, protect} = require(\"../middleware/auth\");\r\n-const { getAgent ,addAgent, agentUpdate } = require(\"../controller/agent\");\r\n+const { getAgent ,addAgent, agentUpdate } = require(\"../controller/Agent\");\r\n \r\n router.get('/getAgent',protect,authorize(0,1),getAgent)\r\n \r\n router.post('/addagent',protect,authorize(0,1),addAgent);\r\n"
+                },
+                {
+                    "date": 1671164380847,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n const express = require(\"express\");\r\n const router = new express.Router();\r\n const {authorize, protect} = require(\"../middleware/auth\");\r\n-const { getAgent ,addAgent, agentUpdate } = require(\"../controller/Agent\");\r\n+const { getAgent ,addAgent, agentUpdate } = require(\"../controller/agent\");\r\n \r\n router.get('/getAgent',protect,authorize(0,1),getAgent)\r\n \r\n router.post('/addagent',protect,authorize(0,1),addAgent);\r\n"
+                }
+            ],
+            "date": 1671163942772,
+            "name": "Commit-0",
+            "content": "const express = require(\"express\");\r\nconst router = new express.Router();\r\nconst {authorize, protect} = require(\"../middleware/auth\");\r\nconst { getAgent ,addAgent, agentUpdate } = require(\"../controller/agent\");\r\n\r\nrouter.get('/getAgent',protect,authorize(0,1),getAgent)\r\n\r\nrouter.post('/addagent',protect,authorize(0,1),addAgent);\r\nrouter.post('/agentupdate',protect,authorize(0,1),agentUpdate);\r\n\r\n\r\n\r\nmodule.exports = router;"
+        }
+    ]
+}

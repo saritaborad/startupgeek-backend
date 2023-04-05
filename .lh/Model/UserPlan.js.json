@@ -1,0 +1,18 @@
+{
+    "sourceFile": "Model/UserPlan.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1674196907148,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1674196907148,
+            "name": "Commit-0",
+            "content": "const mongoose = require(\"mongoose\");\r\n\r\nconst userPlanSchema = new mongoose.Schema(\r\n  {\r\n    userid: {\r\n      type: mongoose.Schema.Types.ObjectId,\r\n      ref: \"User\",\r\n    },\r\n    company_id: {\r\n      type: mongoose.Schema.Types.ObjectId,\r\n      ref: \"Company\"\r\n    },\r\n    mainPlanType: {\r\n      type: String, // 1 - company plan, 2 - service plan 3- default plan\r\n    },\r\n    entity_type: {\r\n      type: String,\r\n      enum: [\"LLC\", \"S-Corporation\", \"C-Corporation\", \"Nonprofit\"]\r\n    },\r\n    service_price: {\r\n      type: String,\r\n    },\r\n    service_duration: {\r\n      type: String,\r\n    },\r\n    stateId: {\r\n      type: mongoose.Schema.Types.ObjectId,\r\n      ref: \"State\",\r\n    },\r\n    stateName: {\r\n      type: String,\r\n    },\r\n    planid: {\r\n      type: mongoose.Schema.Types.ObjectId,\r\n      ref: \"PricingPlan\",\r\n    },\r\n    servicePay: {\r\n      type: Number\r\n    },\r\n    plan: [\r\n      {\r\n        plan_type: {\r\n          type: String, // 1 - gold, 2 - silver, 3 - platinum\r\n        },\r\n        name: {\r\n          type: String,\r\n        },\r\n        description: {\r\n          type: String,\r\n        },\r\n        status: {\r\n          type: String,\r\n          default: 3, // 1 - active, 2 for inactive, 3 for draft\r\n        },\r\n        package_fee: {\r\n          type: String,\r\n        },\r\n        state_fee: {\r\n          type: String,\r\n        },\r\n        popular: {\r\n          type: String,\r\n          default: false,\r\n        },\r\n        priceid: {\r\n          type: String\r\n        },\r\n        features: [\"Full courses library\", \"A new daily meditation\"],\r\n      },\r\n    ],\r\n    total: {\r\n      type: String,\r\n    },\r\n  },\r\n  {\r\n    timestamps: true,\r\n  }\r\n);\r\n\r\nmodule.exports = mongoose.model(\"UserPlan\", userPlanSchema);\r\n"
+        }
+    ]
+}

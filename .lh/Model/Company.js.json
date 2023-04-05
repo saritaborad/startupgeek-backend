@@ -1,0 +1,18 @@
+{
+  "sourceFile": "Model/Company.js",
+  "activeCommit": 0,
+  "commits": [
+    {
+      "activePatchIndex": 0,
+      "patches": [
+        {
+          "date": 1673590137513,
+          "content": "Index: \n===================================================================\n--- \n+++ \n"
+        }
+      ],
+      "date": 1673590137513,
+      "name": "Commit-0",
+      "content": "const mongoose = require(\"mongoose\");\r\n\r\nconst companySchema = new mongoose.Schema(\r\n  {\r\n    userid: {\r\n      type: mongoose.Schema.Types.ObjectId,\r\n      ref: \"User\",\r\n    },\r\n    userPlanId: {\r\n      type: mongoose.Schema.Types.ObjectId,\r\n      ref: \"UserPlan\"\r\n    },\r\n    company_type: {\r\n      type: String, // company type in name --> LLC,  S-Corporation, C-Corporation, Nonprofit\r\n      enum: [\"LLC\", \"S-Corporation\", \"C-Corporation\", \"Nonprofit\"],\r\n    },\r\n    Cname: {\r\n      type: String,\r\n      default: null,\r\n    },\r\n    designator: {\r\n      type: String,\r\n      default: null,\r\n    },\r\n    company_name: {\r\n      type: String,\r\n      // unique: [true, \"company name already exist\"]\r\n    },\r\n    industry: {\r\n      type: String,\r\n      default: null,\r\n    },\r\n    owners: {\r\n      type: Number,\r\n      default: 0,\r\n    },\r\n    business_purpose: {\r\n      type: String,\r\n      default: null,\r\n    },\r\n    description: {\r\n      type: String,\r\n      default: null,\r\n    },\r\n    authorized_no: {\r\n      type: Number,\r\n      default: 0,\r\n    },\r\n    share_value: {\r\n      type: Number,\r\n      default: 0,\r\n    },\r\n    shareholders_no: {\r\n      type: Number,\r\n      default: 0,\r\n    },\r\n    street_address: {\r\n      type: String,\r\n    },\r\n    address: {\r\n      type: String,\r\n      default: null,\r\n    },\r\n    city: {\r\n      type: String,\r\n    },\r\n    state: {\r\n      stype: String,\r\n    },\r\n    entity_type: {\r\n      type: String, // Business Type / Industry\r\n    },\r\n    formation_state: {\r\n      stype: String,\r\n    },\r\n    service_state: {\r\n      type: String,\r\n    },\r\n    confirm_company_name: {\r\n      type: String,\r\n    },\r\n    zip_code: {\r\n      type: Number,\r\n    },\r\n    status: {\r\n      type: Number,\r\n      default: 0, // 1 for inactive, 2 for taken, 3 for available\r\n    },\r\n    naics: {\r\n      type: String,\r\n      default: null,\r\n    },\r\n    naicsCode: {\r\n      type: String,\r\n    },\r\n    naicsSubCode: {\r\n      type: String,\r\n    },\r\n    planstatus: {\r\n      type: Boolean  // true= plan exist , false = plan cancel\r\n    }\r\n  },\r\n  { timestamps: true }\r\n);\r\n\r\ncompanySchema.virtual(\"userplan\", {\r\n  ref: \"UserPlan\",\r\n  localField: \"userid\",\r\n  foreignField: \"userid\",\r\n  justOne: true,\r\n});\r\n\r\ncompanySchema.set(\"toObject\", { virtuals: true });\r\ncompanySchema.set(\"toJSON\", { virtuals: true });\r\n\r\nmodule.exports = mongoose.model(\"Company\", companySchema);\r\n"
+    }
+  ]
+}
